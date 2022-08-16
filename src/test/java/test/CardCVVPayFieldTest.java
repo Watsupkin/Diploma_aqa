@@ -9,7 +9,7 @@ import page.PayPage;
 
 import static data.Data.*;
 
-public class CardCvvTest extends UiBaseTest{
+public class CardCVVPayFieldTest extends UiBaseTest{
 
     MainPage mainPage = new MainPage();
     PayPage payPage = new PayPage();

@@ -9,7 +9,7 @@ import page.PayPage;
 
 import static data.Data.*;
 
-public class CardMonthFieldTest extends UiBaseTest{
+public class CardMonthPayFieldTest extends UiBaseTest{
 
     MainPage mainPage = new MainPage();
     PayPage payPage = new PayPage();

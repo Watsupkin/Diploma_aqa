@@ -16,7 +16,7 @@ import static data.API.PaymentPageForm;
 import static data.Data.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ApiTest extends UiBaseTest{
+public class APITest extends UiBaseTest{
 
     @BeforeAll
     static void setUpAll() {
