@@ -20,7 +20,7 @@ public class AllFieldsEmptyPayCardTest extends UiBaseTest{
     }
 
     @Test
-    public void shouldSuccessIfEmpty() {
+    public void shouldSuccessPayIfValidApprovedCards() {
         val cardData = new Data.CardData(getEmptyCardNumber(), getEmptyMonth(), getEmptyYear(), getEmptyName(), getEmptyCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldEmptyImproperFormatAlert();

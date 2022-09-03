@@ -22,7 +22,7 @@ public class HappyPathPayTest extends UiBaseTest {
     }
 
     @Test
-    void shouldSuccessPayIfApprovedCard() {
+    void shouldSuccessPayIfValidApprovedCards() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldSuccessAlert();
@@ -32,7 +32,7 @@ public class HappyPathPayTest extends UiBaseTest {
 
 
     @Test
-    void shouldFailPayIfDeclinedCard() {
+    void shouldFailurePayIfValidDeclinedCards() {
         val cardData = new Data.CardData(getDeclinedCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldFailAlert();

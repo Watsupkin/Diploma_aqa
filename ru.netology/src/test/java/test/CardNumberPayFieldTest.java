@@ -20,49 +20,49 @@ public class CardNumberPayFieldTest extends UiBaseTest{
     }
 
     @Test
-    public void shouldFailPayIfLongCardNumber() {
+    public void shouldFailurePaymentIfWrongBigCardNumber() {
         val cardData = new Data.CardData(getLongCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldFailAlert();
     }
 
     @Test
-    public void shouldFailPayIfLettersCardNumber() {
+    public void shouldFailurePaymentIfLettersCardNumber() {
         val cardData = new Data.CardData(getLettersCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldFailPayIfShortCardNumber() {
+    public void shouldFailurePaymentIfShortUnknownCardNumber() {
         val cardData = new Data.CardData(getShortCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldFailPayIfUnknownCardNumber() {
+    public void shouldFailurePaymentIfUnknownCardNumber() {
         val cardData = new Data.CardData(getUnknownCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldFailAlert();
     }
 
     @Test
-    public void shouldFailPayIfZerosCardNumber() {
+    public void shouldFailurePaymentIfZerosCardNumber() {
         val cardData = new Data.CardData(getZerosCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldFailAlert();
     }
 
     @Test
-    public void shouldFailPayIfSymbolsCardNumber() {
+    public void shouldFailurePaymentIfCardNumberWithSigns() {
         val cardData = new Data.CardData(getSymbolsCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldFailPayIfEmptyCardNumber() {
+    public void shouldFailurePaymentIfCardNumberWithEmptyField() {
         val cardData = new Data.CardData(getEmptyCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldEmptyImproperFormatAlert();

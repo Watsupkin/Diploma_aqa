@@ -20,49 +20,49 @@ public class CardHolderPayFieldTest extends UiBaseTest{
     }
 
     @Test
-    public void shouldSuccessIfRussianName() {
+    public void shouldSuccessPayIfNameInRussian() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getRussianName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfNameWithNumbers() {
+    public void shouldSuccessPayIfNameWithNumbers() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getNameWitchNums(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfNameWithSymbols() {
+    public void shouldSuccessPayIfNameWithSigns() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getNameWitchSymbols(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfOnlyFirstName() {
+    public void shouldSuccessPayIfNameOne() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getOnlyFirstName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfOneLetter() {
+    public void shouldSuccessPayIfOneLetter() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getOneLetterName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessPayIfLongName() {
+    public void shouldSuccessPayIfOwnerNameLong() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getLongName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfDoubleName() {
+    public void shouldSuccessPayIfNameWithHyphens() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getDoubleName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldSuccessAlert();

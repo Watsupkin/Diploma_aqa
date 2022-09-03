@@ -20,35 +20,35 @@ public class CardCVVPayFieldTest extends UiBaseTest{
     }
 
     @Test
-    public void shouldSuccessIfCvvLetters() {
+    public void shouldSuccessPayIfCVCLetters() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvvWitchLetters());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfCvvOneNum() {
+    public void shouldSuccessPayIfCVCOneDigit() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvvWitchOneNum());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfCvvTwoNums() {
+    public void shouldSuccessPayIfCVCTwoDigits() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvvWitchTwoNums());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfCvvWithSymbols() {
+    public void shouldSuccessPayIfCVCWithSigns() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidName(), getCvvWitchSymbols());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfEmptyCvv() {
+    public void shouldSuccessPayIfCVCEmptyField() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getValidYear(), getValidName(), getEmptyCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldEmptyImproperFormatAlert();

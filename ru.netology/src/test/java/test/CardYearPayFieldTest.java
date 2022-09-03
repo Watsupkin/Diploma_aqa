@@ -20,35 +20,35 @@ public class CardYearPayFieldTest extends UiBaseTest{
     }
 
     @Test
-    void shouldSuccessPayPastYear() {
+    void shouldSuccessPayIfPastYear() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getPastYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldExpiredDateAlert();
     }
 
     @Test
-    void shouldSuccessPayLetterYear() {
+    void shouldSuccessPayIfLettersYear() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getLettersYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    void shouldSuccessPayOneNumYear() {
+    void shouldSuccessPayIfYearWithOneDigit() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getOneNumYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    void shouldSuccessPayLastYear() {
+    void shouldSuccessPayIfLastYear() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getFutureYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldExpiredDateAlert();
     }
 
     @Test
-    void shouldSuccessPayNextYear() {
+    void shouldSuccessPayIf23Year() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getNextYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldFailAlert();
@@ -56,7 +56,7 @@ public class CardYearPayFieldTest extends UiBaseTest{
     }
 
     @Test
-    void shouldSuccessPay27Year() {
+    void shouldSuccessPayIf27Year() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), get27Year(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldFailAlert();
@@ -64,14 +64,14 @@ public class CardYearPayFieldTest extends UiBaseTest{
     }
 
     @Test
-    void shouldSuccessPaySymbolsYear() {
+    void shouldSuccessPayIfYearWithSigns() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getSymbolsYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    void shouldSuccessPayEmptyYear() {
+    void shouldSuccessPayIfYearEmptyField() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getEmptyYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldEmptyImproperFormatAlert();

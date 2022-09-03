@@ -20,42 +20,42 @@ public class CardMonthPayFieldTest extends UiBaseTest{
     }
 
     @Test
-    public void shouldSuccessIfMonthMore12() {
+    public void shouldSuccessPayIfMonthMore12() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getMonthNotInRange(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldInvalidDateAlert();
     }
 
     @Test
-    public void shouldSuccessIfLettersMonth() {
+    public void shouldSuccessPayIfLettersMonth() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getMonthWitchLetters(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfOneNumMonth() {
+    public void shouldSuccessPayIfMonthWithOneDigit() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getMonthWitchOneNum(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfZerosMonth() {
+    public void shouldSuccessPayIfMonthWithZeros() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getMonthWitchZeros(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldInvalidDateAlert();
     }
 
     @Test
-    public void shouldSuccessIfSymbolsMonth() {
+    public void shouldSuccessPayIfMonthWithSigns() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getMonthWitchSymbols(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
-    public void shouldSuccessIfEmptyMonth() {
+    public void shouldSuccessPayIfMonthWithEmptyField() {
         val cardData = new Data.CardData(getApprovedCardNumber(), getEmptyMonth(), getValidYear(), getValidName(), getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldEmptyImproperFormatAlert();
