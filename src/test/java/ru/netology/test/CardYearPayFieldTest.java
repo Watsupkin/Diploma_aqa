@@ -1,15 +1,13 @@
-package test;
+package ru.netology.test;
 
-import data.Data;
+import ru.netology.data.Data;
+import ru.netology.page.MainPage;
+import ru.netology.page.PayPage;
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import page.MainPage;
-import page.PayPage;
 
-import static data.Data.*;
-
-public class CardYearPayFieldTest extends UiBaseTest{
+public class CardYearPayFieldTest extends UiBaseTest {
 
     MainPage mainPage = new MainPage();
     PayPage payPage = new PayPage();
@@ -21,35 +19,35 @@ public class CardYearPayFieldTest extends UiBaseTest{
 
     @Test
     void shouldSuccessPayIfPastYear() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getPastYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getValidMonth(), Data.getPastYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldExpiredDateAlert();
     }
 
     @Test
     void shouldSuccessPayIfLettersYear() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getLettersYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getValidMonth(), Data.getLettersYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
     void shouldSuccessPayIfYearWithOneDigit() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getOneNumYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getValidMonth(), Data.getOneNumYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
     void shouldSuccessPayIfLastYear() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getFutureYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getValidMonth(), Data.getFutureYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldExpiredDateAlert();
     }
 
     @Test
     void shouldSuccessPayIf23Year() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getNextYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getValidMonth(), Data.getNextYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldFailAlert();
         payPage.shouldSuccessAlertHidden();
@@ -57,7 +55,7 @@ public class CardYearPayFieldTest extends UiBaseTest{
 
     @Test
     void shouldSuccessPayIf27Year() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), get27Year(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getValidMonth(), Data.get27Year(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldFailAlert();
         payPage.shouldSuccessAlertHidden();
@@ -65,14 +63,14 @@ public class CardYearPayFieldTest extends UiBaseTest{
 
     @Test
     void shouldSuccessPayIfYearWithSigns() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getSymbolsYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getValidMonth(), Data.getSymbolsYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
     void shouldSuccessPayIfYearEmptyField() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getValidMonth(), getEmptyYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getValidMonth(), Data.getEmptyYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldEmptyImproperFormatAlert();
     }

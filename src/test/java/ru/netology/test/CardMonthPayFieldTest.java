@@ -1,15 +1,13 @@
-package test;
+package ru.netology.test;
 
-import data.Data;
+import ru.netology.data.Data;
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import page.MainPage;
-import page.PayPage;
+import ru.netology.page.MainPage;
+import ru.netology.page.PayPage;
 
-import static data.Data.*;
-
-public class CardMonthPayFieldTest extends UiBaseTest{
+public class CardMonthPayFieldTest extends UiBaseTest {
 
     MainPage mainPage = new MainPage();
     PayPage payPage = new PayPage();
@@ -21,42 +19,42 @@ public class CardMonthPayFieldTest extends UiBaseTest{
 
     @Test
     public void shouldSuccessPayIfMonthMore12() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getMonthNotInRange(), getValidYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getMonthNotInRange(), Data.getValidYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldInvalidDateAlert();
     }
 
     @Test
     public void shouldSuccessPayIfLettersMonth() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getMonthWitchLetters(), getValidYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getMonthWitchLetters(), Data.getValidYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
     public void shouldSuccessPayIfMonthWithOneDigit() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getMonthWitchOneNum(), getValidYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getMonthWitchOneNum(), Data.getValidYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
     public void shouldSuccessPayIfMonthWithZeros() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getMonthWitchZeros(), getValidYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getMonthWitchZeros(), Data.getValidYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldInvalidDateAlert();
     }
 
     @Test
     public void shouldSuccessPayIfMonthWithSigns() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getMonthWitchSymbols(), getValidYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getMonthWitchSymbols(), Data.getValidYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldImproperFormatAlert();
     }
 
     @Test
     public void shouldSuccessPayIfMonthWithEmptyField() {
-        val cardData = new Data.CardData(getApprovedCardNumber(), getEmptyMonth(), getValidYear(), getValidName(), getCvv());
+        val cardData = new Data.CardData(Data.getApprovedCardNumber(), Data.getEmptyMonth(), Data.getValidYear(), Data.getValidName(), Data.getCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldEmptyImproperFormatAlert();
     }

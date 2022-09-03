@@ -1,15 +1,15 @@
-package test;
+package ru.netology.test;
 
-import data.Data;
+import ru.netology.data.Data;
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import page.MainPage;
-import page.PayPage;
+import ru.netology.page.MainPage;
+import ru.netology.page.PayPage;
 
-import static data.Data.*;
+import static ru.netology.data.Data.*;
 
-public class CardCVVPayFieldTest extends UiBaseTest{
+public class CardCVVPayFieldTest extends UiBaseTest {
 
     MainPage mainPage = new MainPage();
     PayPage payPage = new PayPage();

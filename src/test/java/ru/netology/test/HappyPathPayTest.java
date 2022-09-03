@@ -1,14 +1,14 @@
-package test;
+package ru.netology.test;
 
-import data.Data;
-import data.SQL;
+import ru.netology.data.Data;
+import ru.netology.data.SQL;
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import page.MainPage;
-import page.PayPage;
+import ru.netology.page.MainPage;
+import ru.netology.page.PayPage;
 
-import static data.Data.*;
+import static ru.netology.data.Data.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HappyPathPayTest extends UiBaseTest {

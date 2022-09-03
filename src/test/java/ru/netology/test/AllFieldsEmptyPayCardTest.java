@@ -1,15 +1,13 @@
-package test;
+package ru.netology.test;
 
-import data.Data;
+import ru.netology.data.Data;
+import ru.netology.page.MainPage;
+import ru.netology.page.PayPage;
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import page.MainPage;
-import page.PayPage;
 
-import static data.Data.*;
-
-public class AllFieldsEmptyPayCardTest extends UiBaseTest{
+public class AllFieldsEmptyPayCardTest extends UiBaseTest {
 
     MainPage mainPage = new MainPage();
     PayPage payPage = new PayPage();
@@ -21,7 +19,7 @@ public class AllFieldsEmptyPayCardTest extends UiBaseTest{
 
     @Test
     public void shouldSuccessPayIfValidApprovedCards() {
-        val cardData = new Data.CardData(getEmptyCardNumber(), getEmptyMonth(), getEmptyYear(), getEmptyName(), getEmptyCvv());
+        val cardData = new Data.CardData(Data.getEmptyCardNumber(), Data.getEmptyMonth(), Data.getEmptyYear(), Data.getEmptyName(), Data.getEmptyCvv());
         payPage.fillCardDate(cardData);
         payPage.shouldEmptyImproperFormatAlert();
         payPage.shouldImproperFormatAlertHidden();

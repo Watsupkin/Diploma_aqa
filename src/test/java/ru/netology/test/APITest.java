@@ -1,8 +1,8 @@
-package test;
+package ru.netology.test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.Data;
-import data.SQL;
+import ru.netology.data.SQL;
+import ru.netology.data.Data;
 import io.qameta.allure.selenide.AllureSelenide;
 import lombok.val;
 import org.junit.jupiter.api.AfterAll;
@@ -11,12 +11,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-import static data.API.CreditRequestPageForm;
-import static data.API.PaymentPageForm;
-import static data.Data.*;
+import static ru.netology.data.API.CreditRequestPageForm;
+import static ru.netology.data.API.PaymentPageForm;
+import static ru.netology.data.Data.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class APITest extends UiBaseTest{
+public class APITest extends UiBaseTest {
 
     @BeforeAll
     static void setUpAll() {

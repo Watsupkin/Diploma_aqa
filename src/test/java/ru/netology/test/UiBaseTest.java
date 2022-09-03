@@ -1,7 +1,7 @@
-package test;
+package ru.netology.test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.SQL;
+import ru.netology.data.SQL;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
